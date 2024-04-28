@@ -1,5 +1,7 @@
+const { createReadStream } = require('fs');
 
-const _ = require('lo')
-const items = [1, [2,[3,[4]]]]
-const newItems = _flattenDeep(items)
-console.log(newItems)
+const stream = createReadStream('./content/big.txt');
+
+stream.on('data',(result)=>{
+  console.log(result)
+})
